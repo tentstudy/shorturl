@@ -1,0 +1,11 @@
+#dataTables-example tbody td {
+    max-width: 450px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#editUrlWrapper h4 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

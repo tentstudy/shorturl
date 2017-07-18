@@ -1,0 +1,21 @@
+
+RewriteEngine on
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^index.html$ "index.php"
+RewriteRule ^index.asp$ "index.php"
+RewriteRule ^index.abc$ "index.php"
+RewriteRule ^index.xyz$ "index.php"
+RewriteRule ^404error$ "404.php"
+RewriteRule ^login$ "login.php"
+RewriteRule ^logout$ "logout.php"
+RewriteRule ^user/login$ "../login.php"
+RewriteRule ^user/logout$ "./logout.php"
+RewriteRule ^user/profile$ "./user/index.php?p=profile"
+RewriteRule ^user/list-url$ "./user/index.php?p=list-url"
+RewriteRule ^user/about$ "./user/index.php?p=about"
+RewriteRule ^user/edit-url=[a-zA-Z0-9_-]{7,30}$ "./user/index.php?p=edit-url&id=$0"
+RewriteRule ^user/delete-url=[a-zA-Z0-9_-]{7,30}$ "./user/index.php?p=delete-url&id=$0"
+RewriteRule ^[a-zA-Z0-9_-]{7,30}$ red.php?&id=$0
+RewriteRule ^[a-zA-Z0-9_-]{1,6}$ 404error
