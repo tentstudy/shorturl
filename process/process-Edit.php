@@ -6,7 +6,7 @@ if (isset($_POST["btnXong"])) { //submit form sửa liên kết
 		if (preg_replace("/[^A-Za-z0-9_-]/", '', $txtEdited) == $txtEdited && strlen($txtEdited) >= 7 && strlen($txtEdited) <= 30) {   
 		//kiểm tra xem liên kết tùy chỉnh có chứa kí tự không hợp lệ hay không và chiều dài có thỏa mãn hay không
 			$curTime = date('d/m/Y == H:i:s');
-			$sql = 'UPDATE shorturl SET id = "'.$txtEdited.'", timeupdate = "'.$curTime.'" WHERE id = "'.$txtCurId.'"';
+			$sql = 'UPDATE shorturl SET id = "'.$txtEdited.'", timeupdate = "'.$curTime.'" WHERE id = "'.$txtCurId.'" AND user = "' . $_SESSION['FBID'] . '"';
 			$check = mysqli_query($connection,$sql);
 			if (mysqli_error($connection) == null) { //không có lỗi => thay đổi liên kết thành công
 				$msg = "Tùy chình liên kết thành công.";
